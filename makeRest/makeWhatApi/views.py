@@ -1,8 +1,9 @@
-from django.http import HttpResponse
-from django.views import generic
-from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from django.http import HttpResponse
+# from django.views import generic
+from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
+
 import json
 
 from rest_framework import permissions
@@ -11,13 +12,50 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
-# from makeWhatApi.models import
-# from makeWhatApi.serializers import *
+from makeWhatApi.models import Projects, Supplies, Types, MakersProjects, SuppliesProjects, TypesProjects
+from makeWhatApi.serializers import *
 
 # The Generic View that now relies on Angular to do the rest.
-class IndexView(generic.TemplateView):
-	template_name = 'index.html'
+# class IndexView(generic.TemplateView):
+# 	template_name = 'index.html'
 
+class UsersList(viewsets.ModelViewSet):
+	queryset = User.objects.all()
+	serializer_class = UsersSerializer
+
+class ProjectsList(viewsets.ModelViewSet):
+	model = Projects
+	queryset = Projects.objects.all()
+	serializer_class = ProjectsSerializer
+
+class SuppliesList(viewsets.ModelViewSet):
+	model = Supplies
+	queryset = Supplies.objects.all()
+	serializer_class = SuppliesSerializer
+
+class TypesList(viewsets.ModelViewSet):
+	model = Types
+	queryset = Types.objects.all()
+	serializer_class = TypesSerializer
+
+class MakersProjectsList(viewsets.ModelViewSet):
+	model = MakersProjects
+	queryset = MakersProjects.objects.all()
+	serializer_class = MakersProjectsSerializer
+
+class SuppliesProjectsList(viewsets.ModelViewSet):
+	model = SuppliesProjects
+	queryset = SuppliesProjects.objects.all()
+	serializer_class = SuppliesProjectsSerializer
+
+class TypesProjectsList(viewsets.ModelViewSet):
+	model = TypesProjects
+	queryset = TypesProjects.objects.all()
+	serializer_class = TypesProjectsSerializer
+
+
+
+###### User registration and log in below ######
 @csrf_exempt
 def register_user(request):
 	'''Handles the creation of a new user for authentication

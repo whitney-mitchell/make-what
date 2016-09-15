@@ -6,6 +6,13 @@ from makeWhatApi import views
 # app_name = "makeWhatApi"
 
 router = routers.DefaultRouter()
+router.register(r'users', views.UsersList)
+router.register(r'projects', views.ProjectsList)
+router.register(r'supplies', views.SuppliesList)
+router.register(r'types', views.TypesList)
+router.register(r'makersprojects', views.MakersProjectsList)
+router.register(r'suppliesprojects', views.SuppliesProjectsList)
+router.register(r'typesprojects', views.TypesProjectsList)
 
 urlpatterns = [
 	url(r'^register/$', views.register_user, name='register_user'),
