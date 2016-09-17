@@ -1,0 +1,10 @@
+<h1>((heading))</h1>
+<p> You selected ((selectedSupplies))</p>
+<p> You selected ((selectedTypes))</p>
+
+<form class= 'container main project_container'>
+	<div class='row' ng-repeat='project in SuppliesProjects | filter:selectedSupplies | limitTo: 10'>
+		<p value="((supplies.name))">((project.name | capitalize))</p>
+
+	</div>
+</form>

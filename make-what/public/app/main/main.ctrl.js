@@ -1,15 +1,17 @@
 'use strict';
 
 angular.module('make-what')
-	.controller('MainCtrl', ['$scope','$http', '$location', '$timeout', '$routeParams', 'apiUrl', 'RootFactory',
+	.controller('MainCtrl', ['$scope','$http', '$location', '$timeout', 'apiUrl', 'RootFactory',
 
-		function($scope, $http, $location, $timeout, $routeParams, apiUrl, RootFactory){
+		function($scope, $http, $location, $timeout, apiUrl, RootFactory){
 			$scope.projects = null;
 			$scope.types = null;
 			$scope.users = null;
 
 			$scope.root = null;
 
+			$scope.selectedsupplies = [];
+			$scope.selected_types = [];
 
 			// Get root API, then get all the data needed for this view's functionality.
 			RootFactory.getApiRoot()
@@ -31,17 +33,46 @@ angular.module('make-what')
 						$scope.types = res.data;
 						return $http.get($scope.root.users);
 					}, console.error
-				);(
+				).then(
 					// Then store users
 					res => $scope.users = res.data, console.error
 				);
 
-      $scope.search = () => {
+
+			// Deal with radio inputs for types, add each to array of selected_types
+			$scope.add = function(type) {
+				var index = $scope.selected_types.indexOf(type.name);
+				if (index == -1 && type.selected) {
+					$scope.selected_types.push(type.name);
+				} else if (!type.selected && index != -1) {
+					$scope.selected_types.splice(index, 1)
+				}
+			}
 
 
+			// Send user search terms to results view
+
+      $scope.search = function() {
+      	$location.path('/results/').search({
+      		selectSupplies: $scope.selected_supplies,
+      		selectTypes: $scope.selected_types
+      	})
+      	console.log("supplies", $scope.selected_supplies)
+      	console.log("types",$scope.selected_types)
 
       }
 
 
 		}
 	]);
+			//Use Services
+
+			// $scope.addSupply = function(selected_supplies) {
+			// 	SuppliesService.addSupplies(selected_supplies)
+			// };
+
+			// $scope.addType = function(selected_types) {
+			// 	TypesService.addTypes(selected_types)
+			// };
+
+			// $location.path('/results');

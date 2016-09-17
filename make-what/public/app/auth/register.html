@@ -1,9 +1,9 @@
 <h1 class='temp'>((regheading))</h1>
 
-<div class='form-container'>
+<form class='form-container'>
 	<div><p>Register as a Maker:</p></div>
 	<section>
-		<input type='text' placeholder='First Name' ng-model='user.first_name'>
+		<input type='text' placeholder='First Name' ng-model='user.first_name' autofocus>
 	</section>
 	<section>
 		<input type='text' placeholder='Last Name' ng-model='user.last_name'>
@@ -17,8 +17,8 @@
 	<section>
 		<input type='password' placeholder='Password' ng-model='user.password'>
 	</section>
-</div>
 
-<button ng-click='register()'>Register</button>
-<button><a href='/'>Cancel</a></button>
+	<button ng-click='register()' ng-enter='register()'>Register</button>
+	<button><a href='/'>Cancel</a></button>
+</form>
 
