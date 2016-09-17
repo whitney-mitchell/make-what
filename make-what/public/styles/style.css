@@ -1,4 +1,28 @@
-h1, a {
+.heading {
 	color: #ffc8c8;
-	margin-left: 10px;
+
+}
+
+.temp {
+	color: #ffc8c8;
+	/*margin-left: 10px;*/
+	font-size: 2em;
+}
+
+.cont2 {
+	margin-top: 7%;
+}
+
+a, p, button{
+	color: #ffc8c8;
+	/*font-size: .5em;*/
+}
+
+a:hover, button:hover {
+	text-decoration: none;
+	color: #337ab7;
+}
+
+.project_container {
+	border: 3px solid #C5B358;
 }

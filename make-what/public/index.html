@@ -8,12 +8,24 @@
 	<link rel='stylesheet' href='/styles/style.css'>
 </head>
 <body>
-	<div class='container'>
-		<h1 class='heading'><a href ='#/'>hello craft</a></h1>
+	<header id="header">
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<!-- <div class='container'> -->
+			<h1 class='heading'><a href ='#/'>hello craft</a></h1>
+				<a href='#/register'>Register</a>
+				<a href='#/login'>Login</a>
+				<a href='#/to_make'>ToMake</a>
+				<a href='#/add_new'>Add a Project</a>
+				<a href='#/'>New Search</a>
+		</nav>
+	</header>
+	<div class='container cont2'
 		<div ng-app='make-what'>
 			<div ng-view></div>
 		</div>
 	</div>
+
+
 
 
 	<!-- Dependency Scripts -->
@@ -22,15 +34,13 @@
 	<script src='/lib/angular-bootstrap/ui-bootstrap-tpls.min.js'></script>
 	<!-- App Scripts -->
 	<script src='/app/app.js'></script>
+	<script src='/app/factory.js'></script>
 	<script src='/app/main/main.config.js'></script>
 	<script src='/app/main/main.ctrl.js'></script>
-	<script src='/app/login/login.config.js'></script>
-	<script src='/app/login/login.ctrl.js'></script>
-	<script src='/app/register/register.config.js'></script>
-	<script src='/app/register/register.ctrl.js'></script>
+	<script src='/app/auth/auth.config.js'></script>
+	<script src='/app/auth/auth.ctrl.js'></script>
 	<script src='/app/results/results.config.js'></script>
 	<script src='/app/results/results.ctrl.js'></script>
-	<script src='/app/results/resultsDetail.ctrl.js'></script>
 	<script src='/app/maker/maker.config.js'></script>
 	<script src='/app/maker/maker.ctrl.js'></script>
 

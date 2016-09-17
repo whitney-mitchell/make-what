@@ -28,7 +28,7 @@ class Supplies(models.Model):
 		return "{}: {}".format(self.id, self.name)
 
 class MakersProjects(models.Model):
-	maker = models.ForeignKey(User, related_name='maker_project')
+	maker = models.ForeignKey('auth.User', related_name='maker_project')
 	project = models.ForeignKey(Projects, related_name='maker_project')
 
 

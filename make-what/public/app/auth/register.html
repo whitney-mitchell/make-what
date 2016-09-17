@@ -1,0 +1,24 @@
+<h1 class='temp'>((regheading))</h1>
+
+<div class='form-container'>
+	<div><p>Register as a Maker:</p></div>
+	<section>
+		<input type='text' placeholder='First Name' ng-model='user.first_name'>
+	</section>
+	<section>
+		<input type='text' placeholder='Last Name' ng-model='user.last_name'>
+	</section>
+	<section>
+		<input type='text' placeholder='Email' ng-model='user.email'>
+	</section>
+	<section>
+		<input type='text' placeholder='MakerName' ng-model='user.username'>
+	</section>
+	<section>
+		<input type='password' placeholder='Password' ng-model='user.password'>
+	</section>
+</div>
+
+<button ng-click='register()'>Register</button>
+<button><a href='/'>Cancel</a></button>
+

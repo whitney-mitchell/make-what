@@ -27,6 +27,9 @@ class ProjectsList(viewsets.ModelViewSet):
 	model = Projects
 	queryset = Projects.objects.all()
 	serializer_class = ProjectsSerializer
+	# permission_classes -- to let django know only logged
+	# in users may create/post new projects.
+	permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 class SuppliesList(viewsets.ModelViewSet):
 	model = Supplies
@@ -42,6 +45,9 @@ class MakersProjectsList(viewsets.ModelViewSet):
 	model = MakersProjects
 	queryset = MakersProjects.objects.all()
 	serializer_class = MakersProjectsSerializer
+	# permission_classes -- to let django know only logged
+	# in users may save projects (post new makerprojects reltionships).
+	permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 class SuppliesProjectsList(viewsets.ModelViewSet):
 	model = SuppliesProjects
@@ -86,7 +92,7 @@ def register_user(request):
 	return login_user(request)
 
 
-
+@csrf_exempt
 def login_user(request):
 	'''Handles the creation of a new user for authentication
 

@@ -9,14 +9,12 @@ class UsersSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class ProjectsSerializer(serializers.HyperlinkedModelSerializer):
-
 	class Meta:
 		model = Projects
 		fields = ('id', 'url', 'name', 'description', 'link')
 
 
 class TypesSerializer(serializers.HyperlinkedModelSerializer):
-
 	class Meta:
 		model = Types
 		fields = ('id', 'url', 'name')

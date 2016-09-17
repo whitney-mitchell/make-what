@@ -1,0 +1,36 @@
+<h1 class='temp'>main</h1>
+<h1>Hello, ((user.username))</h1>
+
+<div class='form-container'>
+	<div><p>Search projects here!</p></div>
+		<p>Type the names of some supplies you already have, or are curious about, and MakeWhat will return some DIY project ideas! (Examples: scissors, fabric, arduino, etc . . .)</p>
+		<section>
+			<input type='text' placeholder='Type supply words.' ng-model='supplies_search'>
+		</section>
+</div>
+<button ng-click='search()'>Register</button>
+
+<div class= 'container project_container'>
+	<div class="row" ng-repeat="project in projects">
+		<p>((project.name))</p>
+
+	</div>
+</div>
+
+<!-- <article>
+  <section>
+    <div>Habitat</div>
+    <select ng-options="habitat as habitat.name for habitat in habitats track by habitat.id" ng-model="selectedHabitat"></select>
+  </section>
+  <section>
+    <div>User</div>
+    <select ng-options="user as user.username for user in users track by user.id" ng-model="selectedUser"></select>
+  </section>
+</article>
+
+<p>
+  <button ng-click="purchase()">Purchase Ticket</button>
+</p> -->
+
+
+
