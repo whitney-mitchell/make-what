@@ -68,3 +68,14 @@ section {
 }
 
 
+/* Ng-show-controlled divs */
+.wrapper {
+	margin-left: 20px;
+}
+
+.showProj, .showProj a {
+	color: #2196f3;
+}
+
+
+

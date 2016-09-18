@@ -6,7 +6,7 @@
 		<p>Search projects here!</p>
 	</div>
 	<p class='instructs'>Type the names of some supplies you already have, or are curious about, and MakeWhat will return DIY project ideas! (Examples: scissors, fabric, arduino, etc . . .)</p>
-	<p>Use commas to seperate your search terms!</p>
+	<p>Use commas to separate your search terms!</p>
 	<section>
 		<input type='text' placeholder='Type supply words.' ng-model='selected_supplies' ng-list ng-trim='false' autofocus>
 	</section>
@@ -34,8 +34,8 @@
 
 	<!-- ng-show div shown on click of a project name -->
 		<div class='wrapper' ng-show='show'>
-			<p>((project.description))</p>
-			<p><a href='((project.link))' target='blank'>Check out the tutorial!</a></p>
+			<p class='showProj'>((project.description))</p>
+			<p class='showProj'><a href='((project.link))' target='blank'>Check out the tutorial!</a></p>
 
 		</div>
 	</div>
