@@ -48,6 +48,11 @@ a:hover, button:hover {
 	margin: 3px auto;
 }
 
+/* Main Search Div */
+section {
+	margin-top: 10px;
+}
+
 /* Projects Div Text */
 .project_container p {
 	margin-left: 10px;
@@ -57,3 +62,9 @@ a:hover, button:hover {
 .cont2 {
 	margin-top: 7%;
 }
+
+.showText:hover {
+	color: #2196f3;
+}
+
+

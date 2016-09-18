@@ -3,8 +3,12 @@
 <p> You selected ((selectedTypes))</p>
 
 <form class= 'container main project_container'>
-	<div class='row' ng-repeat='project in SuppliesProjects | filter:selectedSupplies | limitTo: 10'>
-		<p value="((supplies.name))">((project.name | capitalize))</p>
+	<div class='row' ng-repeat='project in projects | limitTo: 10'>
+		<p value="((project.link))">((project.name | capitalize))</p>
 
 	</div>
 </form>
+
+<div ng-repeat= 'supply in supplies'>
+	<p>((supply.id)) ((supply.name))</p>
+</div>
