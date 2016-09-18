@@ -1,10 +1,13 @@
 <h1 class='temp'>main</h1>
 <h1 class='temp'>Hello, ((user.username))</h1>
 
+	<!-- Search Form -->
 <form class='container main form-container'>
 	<div>
 		<p>Search projects here!</p>
 	</div>
+
+	<!-- Supplies search input -->
 	<p class='instructs'>Type the names of some supplies you already have, or are curious about, and MakeWhat will return DIY project ideas! (Examples: scissors, fabric, arduino, etc . . .)</p>
 	<p>Use commas to separate your search terms!</p>
 	<section>
@@ -15,7 +18,7 @@
 		<a href=''><p class='showText' ng-click='showTypes = !showTypes'>Search by Project Type</p></a>
 	</section>
 
-	<!-- ng-show div shown on click of "Search by type" -->
+	<!-- Ng-show div shown on click of "Search by type" -->
 	<div class='wrapper' ng-show='showTypes'>
 		<p>Select what type of project you want to take on:</p>
 		<section class='radio-inline' ng-repeat='type in types'>
@@ -23,11 +26,13 @@
 		</section>
 	</div>
 
+	<!-- Search Button -->
 	<section>
 		<button ng-click='search()' ng-enter='search()'>Search</button>
 	</section>
 </form>
 
+	<!-- Main Projects Container -->
 <div class= 'container main project_container'>
 	<div class='row' ng-repeat='project in projects | limitTo: 5'>
 		<a href=''><p class='showText' ng-click='show = !show'>((project.name | capitalize))</p></a>
@@ -36,6 +41,7 @@
 		<div class='wrapper' ng-show='show'>
 			<p class='showProj'>((project.description))</p>
 			<p class='showProj'><a href='((project.link))' target='blank'>Check out the tutorial!</a></p>
+			<p class='showProj'><a href='' ng-click='saveToMake()'>Add to my ToMake list</a></p>
 
 		</div>
 	</div>

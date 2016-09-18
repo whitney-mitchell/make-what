@@ -33,18 +33,14 @@ a, p, button, a:visited, a:focus, button:visited, button:focus{
 }
 
 a:hover, button:hover {
-	color: #fffdc8;
+	color:#d1f780;
 	text-decoration: none;
 }
 
-/*a:active, button:active {
-	color: #c5b358;
-	text-decoration: none;
-}*/
 
 /* Search Form Div and Projects Div */
 .main{
-	border: 3px solid #c5b358;
+	border: 3px solid #d1f780;
 	margin: 3px auto;
 }
 
@@ -77,5 +73,8 @@ section {
 	color: #2196f3;
 }
 
+.showProj a:hover {
+	color: #19dfba;
+}
 
 
