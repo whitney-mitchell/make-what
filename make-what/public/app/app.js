@@ -48,33 +48,3 @@ angular.module('make-what', ['ngRoute', 'ui.bootstrap'])
     }
   })
 
-	// // Service to pass supply-search terms between controllers
-	// .service('SuppliesService', () => {
-	// 	let supplyList = [];
-	// 	let addSupplies = function(newItem) {
-	// 		supplyList.push(newItem);
-	// 	};
-	// 	let getSupplies = function() {
-	// 		return supplyList;
-	// 	};
-	// 	return {
-	// 		addSupplies: addSupplies,
-	// 		getSupplies: getSupplies
-	// 	};
-	// })
-
-	//  // Service to pass type-search terms between controllers
-	// .service('TypesService', () => {
-	// 	let typesList = [];
-	// 	let addTypes = function(newItem) {
-	// 		typesList.push(newItem);
-	// 	};
-	// 	let getTypes = function() {
-	// 		return typesList;
-	// 	};
-	// 	return {
-	// 		addTypes: addTypes,
-	// 		getTypes: getTypes
-	// 	};
-	// });
-

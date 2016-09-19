@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('make-what')
-	.controller('AuthCtrl', ['$scope','$http', '$location', 'apiUrl', 'RootFactory',
+	.controller('AuthCtrl', ['$scope','$http', '$location', 'apiUrl', 'RootFactory', 'UserFactory',
 
-		function($scope, $http, $location, apiUrl, RootFactory){
+		function($scope, $http, $location, apiUrl, RootFactory, UserFactory){
 			$scope.logheading = "I'm login!";
 			$scope.regheading = "I'm the registration station!";
 
@@ -56,13 +56,14 @@ angular.module('make-what')
 							username: $scope.user.username,
 							password: $scope.user.password
 						});
+						const userObj = JSON.parse(res.user)[0].fields;
+						UserFactory.setUser(userObj)
 						// Redirect to main view on success
 						$location.path('/');
-						console.log("usercreds", $scope.user);
 					}
 				}).error(() => {
-					window.alert('Please register as a maker before logging in.');
-					$location.path('/register/');
+					// window.alert('Please register as a maker before logging in.');
+					// $location.path('/register/');
 					});
 			};
 

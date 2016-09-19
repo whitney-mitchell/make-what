@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('make-what')
-	.controller('MainCtrl', ['$scope','$http', '$location', '$timeout', 'apiUrl', 'RootFactory',
+	.controller('MainCtrl', ['$scope','$http', '$location', '$timeout', 'apiUrl', 'RootFactory', 'UserFactory',
 
-		function($scope, $http, $location, $timeout, apiUrl, RootFactory){
+		function($scope, $http, $location, $timeout, apiUrl, RootFactory, UserFactory){
 			$scope.projects = null;
 			$scope.types = null;
 			$scope.users = null;
@@ -39,7 +39,7 @@ angular.module('make-what')
 					// Then store users
 					res => $scope.users = res.data, console.error
 				);
-
+				// console.log("", );
 
 			// Deal with radio inputs for types, add each to array of selected_types
 			$scope.add = function(type) {

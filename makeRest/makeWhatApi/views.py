@@ -12,8 +12,10 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
+
 from makeWhatApi.models import Projects, Supplies, Types, MakersProjects, SuppliesProjects, TypesProjects
 from makeWhatApi.serializers import *
+from django.core import serializers
 
 # The Generic View that now relies on Angular to do the rest.
 # class IndexView(generic.TemplateView):
@@ -118,13 +120,41 @@ def login_user(request):
 		)
 
 	# If authentication was successful, log the user in
-	success = True
+	success = False
+	json_user = {}
 	if authenticated_user is not None:
 		login(request=request, user=authenticated_user)
-	else:
-		success = False
+		json_user = serializers.serialize('json', (authenticated_user, ))
+		success = True
+		# return HttpResponse(json_user, content_type='application/json')
+	# else:
+	# 	success = False
+		# response = {'success': False, 'message':'User does not exist.'}
+
 
 	# Data becomes a json object, with one key:value pair
-	data = json.dumps({"success":success})
+	data = json.dumps({'success':success, 'user':json_user})
 	# Tells client login was successful. Or not.
 	return HttpResponse(data, content_type='application/json')
+
+
+	# If authentication was successful, log the user in
+	# success = True
+	# if authenticated_user is not None:
+	# 	login(request=request, user=authenticated_user)
+	# 	# response={'success': True}
+	# 	json_user = serializers.serialize('json', (authenticated_user, ))
+	# 	return HttpResponse(json_user, success, content_type='application/json')
+	# else:
+	# 	success = False
+	# 	response = {'success': False, 'message':'User does not exist.'}
+	# 	# if authenticated_user is None:
+	# 	# login(request=request, user=None)
+	# 	# json_user = serializers,serialize('json', (user, ))
+	# 	# return HttpResponse(json_user, content_type='application/json')
+
+
+	# # Data becomes a json object, with one key:value pair
+	# data = json.dumps(response)
+	# # Tells client login was successful. Or not.
+	# return HttpResponse(data, content_type='application/json')

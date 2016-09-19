@@ -27,4 +27,22 @@ angular.module('make-what')
 				}
 			}
 		}
+	])
+
+	.factory('UserFactory', ['$http',
+		($http) => {
+			let currentUser = null;
+
+			return {
+				getUser () {
+					return currentUser;
+				},
+				setUser (user) {
+					currentUser = user
+					console.log(currentUser);
+				}
+
+			}
+		}
+
 	]);
