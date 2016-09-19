@@ -22,4 +22,9 @@ angular.module('make-what')
 				templateUrl: '/app/maker/maker.html',
 				resolve: { requiresAuth }
 			})
+			.when('/add_new', {
+				controller: 'MakerCtrl',
+				templateUrl: '/app/maker/makeNewProject.html',
+				resolve: { requiresAuth }
+			})
 	})

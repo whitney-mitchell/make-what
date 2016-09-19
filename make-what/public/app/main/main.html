@@ -11,7 +11,7 @@
 	<p class='instructs'>Type the names of some supplies you already have, or are curious about, and MakeWhat will return DIY project ideas! (Examples: scissors, fabric, arduino, etc . . .)</p>
 	<p>Use commas to separate your search terms!</p>
 	<section>
-		<input type='text' placeholder='Type supply words.' ng-model='selected_supplies' ng-list ng-trim='false' autofocus>
+		<input type='text' class='form-control' placeholder='Type supply words.' ng-model='selected_supplies' ng-list ng-trim='false' autofocus>
 	</section>
 
 	<section class='more_options'>
@@ -35,13 +35,13 @@
 	<!-- Main Projects Container -->
 <div class= 'container main project_container'>
 	<div class='row' ng-repeat='project in projects | limitTo: 5'>
-		<a href=''><p class='showText' ng-click='show = !show'>((project.name | capitalize))</p></a>
+		<a href=''><p class='showText' ng-click='show = !show' ng-model='selectedProject'>((project.name | capitalize))</p></a>
 
 	<!-- ng-show div shown on click of a project name -->
 		<div class='wrapper' ng-show='show'>
 			<p class='showProj'>((project.description))</p>
 			<p class='showProj'><a href='((project.link))' target='blank'>Check out the tutorial!</a></p>
-			<p class='showProj'><a href='' ng-click='saveToMake()'>Add to my ToMake list</a></p>
+			<p class='showProj'><a href='' ng-click='saveToMake(project)'>Add to my ToMake list</a></p>
 
 		</div>
 	</div>

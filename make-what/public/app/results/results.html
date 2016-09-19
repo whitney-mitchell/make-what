@@ -2,13 +2,22 @@
 <p> You selected ((selectedSupplies))</p>
 <p> You selected ((selectedTypes))</p>
 
-<form class= 'container main project_container'>
-	<div class='row' ng-repeat='project in projects | limitTo: 10'>
-		<p value="((project.link))">((project.name | capitalize))</p>
+	<!-- Results Projects Container -->
+<div class= 'container main project_container'>
+	<div class='row' ng-repeat='project in projects | limitTo: 5'>
+		<a href=''><p class='showText' ng-click='show = !show' ng-model='selectedProject'>((project.name | capitalize))</p></a>
 
+	<!-- ng-show div shown on click of a project name -->
+		<div class='wrapper' ng-show='show'>
+			<p class='showProj'>((project.description))</p>
+			<p class='showProj'><a href='((project.link))' target='blank'>Check out the tutorial!</a></p>
+			<p class='showProj'><a href='' ng-click='saveToMake(project)'>Add to my ToMake list</a></p>
+
+		</div>
 	</div>
-</form>
+</div>
 
+</div>
 <div ng-repeat= 'supply in supplies'>
 	<p>((supply.id)) ((supply.name))</p>
-</div>
+

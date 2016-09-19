@@ -49,6 +49,14 @@ class MakersProjectsList(viewsets.ModelViewSet):
 	# in users may save projects (post new makerprojects reltionships).
 	permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
+	# def get_queryset(self):
+	# 	"""
+	# 	This view should return a list of all the purchases
+	# 	for the currently authenticated user.
+	# 	"""
+	# 	user = self.request.user
+	# 	return MakersProjects.objects.filter(maker=user)
+
 class SuppliesProjectsList(viewsets.ModelViewSet):
 	model = SuppliesProjects
 	queryset = SuppliesProjects.objects.all()

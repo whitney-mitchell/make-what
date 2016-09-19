@@ -1,0 +1,23 @@
+<h1 class='temp'>post new projects here</h1>
+
+	<!-- Create Project Form -->
+<form class= 'container main project_container'>
+	<div>
+		<p>Add a Project to MakeWhat!</p>
+	</div>
+	<p class='instructs'>Fill out the fields below, then click Create.</p>
+	<p>When listing supplies, please add as many variations on supply-words as possible, and be general. (Ex: Instead of "2 yards silk charmeuse," you could say, "silk, fabric, charmeuse, textile..."</p>
+	<p>And don't forget commas!</p>
+	<section>
+		<input type='text' class='form-control' placeholder='Project Name' autofocus>
+		<input type='text' class='form-control' placeholder='Project Description'>
+		<input type='text' class='form-control' placeholder='URL link to tutorial'>
+		<input type='text' class='form-control' ng-list ng-trim='false' placeholder='Supplies Required'>
+
+	</section>
+	<section>
+		<button ng-click='create()' ng-enter='create()'>Add Project</button>
+	</section>
+
+
+</form>

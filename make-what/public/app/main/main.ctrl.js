@@ -13,6 +13,8 @@ angular.module('make-what')
 			$scope.selectedsupplies = [];
 			$scope.selected_types = [];
 
+			console.log("thisUser", $scope.user)
+
 			// Get root API, then get all the data needed for this view's functionality.
 			RootFactory.getApiRoot()
         .then(
@@ -59,9 +61,26 @@ angular.module('make-what')
       	})
       	console.log("supplies", $scope.selected_supplies)
       	console.log("types",$scope.selected_types)
-
       }
 
+      // Add project to user's ToMake list
+      $scope.saveToMake = function(project) {
+      	console.log("project", project );
+      	// Set the authorization headers on the request
+        // After equal sign below, this is the Base 64 string built in app.js
+        $http.defaults.headers.common.Authorization = 'Basic ' + RootFactory.credentials();
+
+        $http({
+          url: $scope.root.makersprojects,
+          method: "POST",
+          data: {
+            "maker": $scope.user.url,
+            "project": $scope.selectedProject.url
+          }
+        })
+        .success(res => res.success ? $location.path('/maker') : null)
+        .error(window.alert('Please log in to save projects.'));
+      }
 
 		}
 	]);
