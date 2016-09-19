@@ -4,7 +4,7 @@
 
 	<!-- Results Projects Container -->
 <div class= 'container main project_container'>
-	<div class='row' ng-repeat='project in projectMatches | limitTo: 5'>
+	<div class='row' ng-repeat='project in projectMatches track by $index | limitTo: 5'>
 		<a href=''><p class='showText' ng-click='show = !show' ng-model='selectedProject'>((project.name | capitalize))</p></a>
 
 	<!-- ng-show div shown on click of a project name -->

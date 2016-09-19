@@ -25,6 +25,7 @@ class SuppliesSerializer(serializers.HyperlinkedModelSerializer):
 
 class MakersProjectsSerializer(serializers.HyperlinkedModelSerializer):
 	# Due to lack of time before Demo Day, comment out the following line to edit API
+	# Will refactor and build multiple serializers.
 	maker = UsersSerializer()
 
 	class Meta:

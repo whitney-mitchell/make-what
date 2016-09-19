@@ -56,7 +56,53 @@ angular.module('make-what')
 						}
 					}
 				);
+
+
+
 			}
+
+
+
+			// (supplies, selectedSupplies) => {
+				// for (var i = 0; i <= selectedSupplies.length; i+=1)
+					// for (var j = 0; j <= supplies.length; j+=1)
+						// if supplies[j].name === selectSupplies[i]
+							// suppliesMatch = supplies[j].name;
+							// return suppliesMatch;
+			// }
+
+			// var matches = [],
+			// i, j;
+			// for (i=0; i < $scope.supplies.length; i++)
+			// 	// console.log("supplies", $scope.supplies[i] );
+			// 	if (-1 != (j = $scope.selectedSupplies.indexOf($scope.supplies[i].name.string)))
+			// 		matches.push($scope.supplies[i]);
+			// 	console.log("matches", matches);
+
+
+
+			// $scope.suppliesSet = {};
+			// for (var i = 0; i < $scope.selectedSupplies.length; i++) {
+			// 	var e = $scope.selectedSupplies[i];
+			// 	$scope.suppliesSet[e] = true;
+			// };
+			// console.log("supplies.length", $scope.supplies);
+			// $scope.suppliesMatches = [];
+			// for (var j = 0; j < $scope.supplies.length; j++) {
+			// 	var f = $scope.supplies[j].name;
+			// 	if ($scope.suppliesSet[f.string]) {
+			// 		$scope.suppliesMatches.push(f);
+			// 	}
+			// };
+			// console.log("$scope.supplies.length", $scope.supplies.length);
+			// console.log("supMatch", $scope.suppliesMatches);
+			// console.log("supSet", $scope.suppliesSet);
+
+
+
+			// Compare selectedTypes against API Types
+			// If match, check against API typesProjects
+			// then bring back all matching projects.
 
 
 	])
