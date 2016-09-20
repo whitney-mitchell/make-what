@@ -1,20 +1,36 @@
 <h1>((heading))</h1>
-<p> You selected ((selectedSupplies))</p>
-<p> You selected ((selectedTypes))</p>
+
+	<div class=wrapper>
+		<p>You selected:</p>
+		<ul class='wrapper suppliesSearched' ng-repeat= 'supply in selectedSupplies'>
+			<li>((supply))</li>
+		</ul>
+
+	</div>
+
+
+<!-- <p> You selected ((selectedTypes))</p> -->
 
 	<!-- Results Projects Container -->
-<div class= 'container main project_container'>
-	<div class='row' ng-repeat='project in projectMatches track by $index | limitTo: 5'>
-		<a href=''><p class='showText' ng-click='show = !show' ng-model='selectedProject'>((project.name | capitalize))</p></a>
+	<div class= 'container main project_container'>
+		<div class='row' ng-repeat="project in projectMatches | unique: 'name'">
+			<a href=''><p class='showText' ng-click='show = !show' ng-model='selectedProject'>((project.name | capitalize))</p></a>
 
-	<!-- ng-show div shown on click of a project name -->
-		<div class='wrapper' ng-show='show'>
-			<p class='showProj'>((project.description))</p>
-			<p class='showProj'><a href='((project.link))' target='blank'>Check out the tutorial!</a></p>
-			<p class='showProj'><a href='' ng-click='saveToMake(project)'>Add to my ToMake list</a></p>
+		<!-- ng-show div shown on click of a project name -->
+			<div class='wrapper inset' ng-show='show'>
+				<p class='showProj'>((project.description))</p>
+				<p class='showProj'><a href='((project.link))' target='blank'>Check out the tutorial!</a></p>
+				<p class='showProj'><a href='' ng-click='saveToMake(project)'>Add to my ToMake list</a></p>
+
+			</div>
+		</div>
+
+		<!-- ng-show div shown if there are no project matches -->
+		<div class='wrapper' ng-show='!projectMatches.length' >
+			<p>Sorry, no projects were found matching your search. <a href='/'>Try again</a>, with different supplies or a more general version of the same supplies.</p>
 
 		</div>
+
 	</div>
-</div>
 
 

@@ -38,8 +38,7 @@ angular.module('make-what')
 					return currentUser;
 				},
 				setUser (user) {
-					currentUser = user
-					console.log(currentUser);
+					currentUser = user;
 				}
 
 			}

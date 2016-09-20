@@ -1,5 +1,5 @@
 <h1 class='temp'>main</h1>
-<h1 class='temp'>Hello, ((user.username))</h1>
+<h1 class='temp'>Hello ((currentUser.username))!</h1>
 
 	<!-- Search Form -->
 <form class='container main form-container'>
@@ -34,14 +34,14 @@
 
 	<!-- Main Projects Container -->
 <div class= 'container main project_container'>
-	<div class='row' ng-repeat='project in projects | limitTo: 5'>
+	<div class='row' ng-repeat='project in projects | limitTo: 10'>
 		<a href=''><p class='showText' ng-click='show = !show' ng-model='selectedProject'>((project.name | capitalize))</p></a>
 
 	<!-- ng-show div shown on click of a project name -->
-		<div class='wrapper' ng-show='show'>
+		<div class='wrapper inset' ng-show='show'>
 			<p class='showProj'>((project.description))</p>
 			<p class='showProj'><a href='((project.link))' target='blank'>Check out the tutorial!</a></p>
-			<p class='showProj'><a href='' ng-click='saveToMake(project)'>Add to my ToMake list</a></p>
+			<p class='showProj'><a href='' ng-click='saveToMake(project, currentUser)'>Add to my ToMake list</a></p>
 
 		</div>
 	</div>

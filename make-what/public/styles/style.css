@@ -3,16 +3,13 @@
 	background-color: #2196f3;
 }
 
+
+/***** MAIN PAGE STYLES *****/
+
 /* Move main (index) container div down to allow for sticky nav bar */
 .cont2 {
 	margin-top: 7%;
 }
-
-
-/*.heading {
-	color: #ffc8c8;
-
-}*/
 
 .temp {
 	color: #ffc8c8;
@@ -66,7 +63,11 @@ section {
 
 /* Ng-show-controlled divs */
 .wrapper {
-	margin-left: 20px;
+	margin-left: 3px auto;
+}
+
+.inset {
+	margin-left: 10px;
 }
 
 .showProj, .showProj a {
@@ -76,5 +77,14 @@ section {
 .showProj a:hover {
 	color: #19dfba;
 }
+
+/***** RESULTS PAGE STYLES *****/
+
+/* Supplies searched list */
+.suppliesSearched {
+	    display: inline-block;
+}
+
+
 
 

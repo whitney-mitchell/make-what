@@ -6,11 +6,12 @@ angular.module('make-what')
 		function($scope, $http, $location, $timeout, apiUrl, RootFactory, UserFactory){
 			$scope.projects = null;
 			$scope.types = null;
-			$scope.users = null;
 
 			$scope.root = null;
 
-			$scope.selectedsupplies = [];
+			$scope.currentUser = null;
+
+			$scope.selectedsupplies = null;
 			$scope.selected_types = [];
 
 			console.log("thisUser", $scope.user)
@@ -31,15 +32,15 @@ angular.module('make-what')
         	}, console.error
       	).then(
 					// Then store types and get users
-					res => {
-						$scope.types = res.data;
-						return $http.get($scope.root.users);
-					}, console.error
-				).then(
-					// Then store users
-					res => $scope.users = res.data, console.error
+					res =>
+						$scope.types = res.data, console.error
 				);
-				// console.log("", );
+
+			// Get logged in user for use in saving projects to ToMake list
+				$scope.currentUser = UserFactory.getUser();
+				console.log("currentUser", $scope.currentUser);
+
+
 
 			// Deal with radio inputs for types, add each to array of selected_types
 			$scope.add = function(type) {
@@ -51,9 +52,7 @@ angular.module('make-what')
 				}
 			}
 
-
 			// Send user search terms to results view
-
       $scope.search = function() {
       	$location.path('/results/').search({
       		selectSupplies: $scope.selected_supplies,
@@ -64,22 +63,22 @@ angular.module('make-what')
       }
 
       // Add project to user's ToMake list
-      $scope.saveToMake = function(project) {
+      $scope.saveToMake = (project, currentUser) => {
       	console.log("project", project );
       	// Set the authorization headers on the request
         // After equal sign below, this is the Base 64 string built in app.js
         $http.defaults.headers.common.Authorization = 'Basic ' + RootFactory.credentials();
-
-        $http({
-          url: $scope.root.makersprojects,
-          method: "POST",
-          data: {
-            "maker": $scope.user.url,
-            "project": $scope.selectedProject.url
-          }
-        })
-        .success(res => res.success ? $location.path('/maker') : null)
-        .error(window.alert('Please log in to save projects.'));
+        console.log('currentUser', currentUser)
+        // $http({
+        //   url: $scope.root.makersprojects,
+        //   method: "POST",
+        //   data: {
+        //     "maker": $scope.currentUser.url,
+        //     "project": $scope.selectedProject.url
+        //   }
+        // })
+        // .success(res => res.success ? $location.path('/maker') : null)
+        // .error(window.alert('Please log in to save projects.'));
       }
 
 		}

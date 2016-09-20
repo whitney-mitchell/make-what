@@ -138,23 +138,4 @@ def login_user(request):
 	return HttpResponse(data, content_type='application/json')
 
 
-	# If authentication was successful, log the user in
-	# success = True
-	# if authenticated_user is not None:
-	# 	login(request=request, user=authenticated_user)
-	# 	# response={'success': True}
-	# 	json_user = serializers.serialize('json', (authenticated_user, ))
-	# 	return HttpResponse(json_user, success, content_type='application/json')
-	# else:
-	# 	success = False
-	# 	response = {'success': False, 'message':'User does not exist.'}
-	# 	# if authenticated_user is None:
-	# 	# login(request=request, user=None)
-	# 	# json_user = serializers,serialize('json', (user, ))
-	# 	# return HttpResponse(json_user, content_type='application/json')
 
-
-	# # Data becomes a json object, with one key:value pair
-	# data = json.dumps(response)
-	# # Tells client login was successful. Or not.
-	# return HttpResponse(data, content_type='application/json')

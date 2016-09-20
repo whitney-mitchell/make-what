@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('make-what', ['ngRoute', 'ui.bootstrap'])
+angular.module('make-what', ['ngRoute', 'ui.bootstrap', 'angular.filter'])
 	// Establish root apiUrl
 	.constant('apiUrl', "http://localhost:8000")
 
@@ -47,4 +47,5 @@ angular.module('make-what', ['ngRoute', 'ui.bootstrap'])
       return api_results_string.charAt(0).toUpperCase() + api_results_string.slice(1)
     }
   })
+
 
