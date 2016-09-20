@@ -48,7 +48,7 @@ class MakersProjectsList(viewsets.ModelViewSet):
 	queryset = MakersProjects.objects.all()
 	serializer_class = MakersProjectsSerializer
 	# permission_classes -- to let django know only logged
-	# in users may save projects (post new makerprojects reltionships).
+	# in users may save projects (post new makersprojects reltionships).
 	permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 	# def get_queryset(self):
@@ -104,7 +104,7 @@ def register_user(request):
 
 @csrf_exempt
 def login_user(request):
-	'''Handles the creation of a new user for authentication
+	'''Handles the login of a new user for authentication
 
 	Method arguments:
 		request -- The full HTTP request object
@@ -138,4 +138,22 @@ def login_user(request):
 	return HttpResponse(data, content_type='application/json')
 
 
+###### MAKER PROJECT SPECIAL VIEW ######
 
+@csrf_exempt
+def maker_proj(request):
+	'''Handles the creation of a new makersprojects relationship
+
+	Method arguments:
+		request -- The full HTTP request object
+	'''
+	request_content = json.loads(request.body.decode())
+
+	new_proj = MakersProjects.objects.create(
+		maker=User.objects.get(username=request_content['username']),
+		project=Projects.objects.get(id=request_content['id'])
+		)
+
+	return HttpResponse(status = 201)
+
+	# makersprojects

@@ -1,8 +1,8 @@
-<h1 class='temp'>((heading))</h1>
+<h1 class='temp'>((currentUser.username))'s ToMake List:</h1>
 	<!-- Main Projects Container -->
 <div class= 'container main project_container'>
-	<div class='row' ng-repeat='(key, resource) in makersprojects | limitTo: 5'>
-		<a href=''><p class='showText' ng-click='show = !show' value='resource.url'>((resource.url | capitalize))</p></a>
+	<div class='row' ng-repeat="project in projects | unique: 'name'">
+		<a href=''><p class='showText' ng-click='show = !show' value='resource.url'>((project.name | capitalize))</p></a>
 
 	<!-- ng-show div shown on click of a project name -->
 		<div class='wrapper' ng-show='show'>

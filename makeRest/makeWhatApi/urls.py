@@ -17,5 +17,6 @@ router.register(r'typesprojects', views.TypesProjectsList)
 urlpatterns = [
 	url(r'^register/$', views.register_user, name='register_user'),
 	url(r'^login$', views.login_user, name='login_user'),
+	url(r'^makerproj$', views.maker_proj, name='maker_proj'),
 	url(r'^', include(router.urls)),
 ]

@@ -8,7 +8,7 @@
 
 /* Move main (index) container div down to allow for sticky nav bar */
 .cont2 {
-	margin-top: 7%;
+	margin-top: 15%;
 }
 
 .temp {
@@ -50,10 +50,6 @@ section {
 .project_container p {
 	margin-left: 10px;
 
-}
-
-.cont2 {
-	margin-top: 7%;
 }
 
 .showText:hover {

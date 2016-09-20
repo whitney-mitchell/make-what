@@ -1,7 +1,7 @@
 angular.module('make-what')
-	.controller('ResultsCtrl', ['$scope','$http', '$timeout', '$routeParams', 'apiUrl', 'RootFactory',
+	.controller('ResultsCtrl', ['$scope','$http', '$location','$timeout', '$routeParams', 'apiUrl', 'RootFactory', 'UserFactory',
 
-		function($scope, $http, $timeout, $routeParams, apiUrl, RootFactory){
+		function($scope, $http, $location, $timeout, $routeParams, apiUrl, RootFactory, UserFactory){
 
 			// Make user-typed supplies lowercase
 			var sortedSupplies = [];
@@ -18,6 +18,8 @@ angular.module('make-what')
 
 			$scope.projects = null;
 			$scope.root = null;
+
+			$scope.currentUser = null;
 
 			// Get root API, then get all the data needed for this view's functionality.
 			RootFactory.getApiRoot()
@@ -57,6 +59,30 @@ angular.module('make-what')
 							console.log('projectMatches', $scope.projectMatches)
 						}
 					}
-				)
+				);
 
-	}]);
+			// Get logged in user for use in saving projects to ToMake list
+			$scope.currentUser = UserFactory.getUser();
+			console.log("currentUser", $scope.currentUser);
+
+			// Add project to user's ToMake list
+			$scope.saveToMake = (project, currentUser) => {
+				console.log("project", project );
+				console.log('currentUser', currentUser)
+				// Set the authorization headers on the request
+				// After equal sign below, this is the Base 64 string built in app.js
+				$http.defaults.headers.common.Authorization = 'Basic ' + RootFactory.credentials();
+
+				$http({
+					url: `${apiUrl}/makerproj`,
+					method: "POST",
+					data: {
+						"username": currentUser.username,
+						"id": project.id
+					}
+				})
+				.success(res => $location.path('/maker'))
+				.error(() => window.alert('Please log in to save projects.'));
+			}
+		}
+	]);
