@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('make-what')
 	.controller('ResultsCtrl', ['$scope','$http', '$location','$timeout', '$routeParams', 'apiUrl', 'RootFactory', 'UserFactory',
 
@@ -40,8 +42,8 @@ angular.module('make-what')
 					}
 				)
 				.then(
-				// Compare selectedSupplies against API projects' supplies,
-				// then bring back all matching projects.
+					// Compare selectedSupplies against API projects' supplies,
+					// then bring back all matching projects.
 					(projects, selectedSupplies) => {
 						$scope.projectMatches = []
 						for (var h=0; h < $scope.selectedSupplies.length; h++) {

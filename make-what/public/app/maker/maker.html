@@ -1,14 +1,14 @@
 <h1 class='temp'>((currentUser.username))'s ToMake List:</h1>
 	<!-- Main Projects Container -->
 <div class= 'container main project_container'>
-	<div class='row' ng-repeat="project in projects | unique: 'name'">
+	<div class='row' ng-repeat="project in makerProjectMatches | unique: 'name'">
 		<a href=''><p class='showText' ng-click='show = !show' value='resource.url'>((project.name | capitalize))</p></a>
 
 	<!-- ng-show div shown on click of a project name -->
 		<div class='wrapper' ng-show='show'>
 			<p class='showProj'>((project.description))</p>
 			<p class='showProj'><a href='((project.link))' target='blank'>Check out the tutorial!</a></p>
-			<p class='showProj'><a href='' ng-click='saveToMake()'>Add to my ToMake list</a></p>
-
+			<!-- <p class='showProj'><a href='' ng-click='saveToMake()'>Add to my ToMake list</a></p> -->
+			<!-- Put a delete option here -->
 		</div>
 	</div>
