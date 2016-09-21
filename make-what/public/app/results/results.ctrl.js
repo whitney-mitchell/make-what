@@ -1,22 +1,27 @@
 'use strict';
 
+
 angular.module('make-what')
 	.controller('ResultsCtrl', ['$scope','$http', '$location','$timeout', '$routeParams', 'apiUrl', 'RootFactory', 'UserFactory',
 
 		function($scope, $http, $location, $timeout, $routeParams, apiUrl, RootFactory, UserFactory){
 
+			$scope.heading = 'results!'
+			console.log("$routeParams.selectSupplies", $routeParams.selectSupplies);
+			$scope.selectedSupplies = [];
 			// Make user-typed supplies lowercase
-			var sortedSupplies = [];
-			for (var i=0; i < $routeParams.selectSupplies.length; i++) {
-				$routeParams.selectSupplies[i].split(" ");
-				sortedSupplies.push($routeParams.selectSupplies[i].toLowerCase());
+			if (typeof($routeParams.selectSupplies) === "string") {
+				$scope.selectedSupplies.push($routeParams.selectSupplies.toLowerCase())
+			} else {
+				for (var i=0; i < $routeParams.selectSupplies.length; i++) {
+						$scope.selectedSupplies.push($routeParams.selectSupplies[i].toLowerCase())
+				}
 			}
 
 			// Make search parameters accessible in results controller
-			$scope.heading = 'results!'
-			$scope.selectedSupplies = sortedSupplies;
+			// $scope.selectedSupplies = sortedSupplies;
 			$scope.selectedTypes = $routeParams.selectTypes;
-			console.log("routeParams", $scope.selectedSupplies, $scope.selectedTypes);
+			console.log("Supplies and types arrays", $scope.selectedSupplies, $scope.selectedTypes);
 
 			$scope.projects = null;
 			$scope.root = null;
@@ -71,20 +76,26 @@ angular.module('make-what')
 			$scope.saveToMake = (project, currentUser) => {
 				console.log("project", project );
 				console.log('currentUser', currentUser)
-				// Set the authorization headers on the request
-				// After equal sign below, this is the Base 64 string built in app.js
-				$http.defaults.headers.common.Authorization = 'Basic ' + RootFactory.credentials();
 
-				$http({
-					url: `${apiUrl}/makerproj`,
-					method: "POST",
-					data: {
-						"username": currentUser.username,
-						"id": project.id
-					}
-				})
-				.success(res => $location.path('/maker'))
-				.error(() => window.alert('Please log in to save projects.'));
+				if (currentUser !== null) {
+					// Set the authorization headers on the request
+					// After equal sign below, this is the Base 64 string built in app.js
+					$http.defaults.headers.common.Authorization = 'Basic ' + RootFactory.credentials();
+
+					$http({
+						url: `${apiUrl}/makerproj`,
+						method: "POST",
+						data: {
+							"username": currentUser.username,
+							"id": project.id
+						}
+					})
+					.success(res => $location.path('/maker'))
+					.error(() => window.alert('Please log in to save projects.'));
+				} else {
+					window.alert('Please log in to save projects.');
+					$location.path('/login');
+				}
 			}
 		}
 	]);

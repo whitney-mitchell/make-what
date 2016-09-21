@@ -142,7 +142,7 @@ def login_user(request):
 
 @csrf_exempt
 def maker_proj(request):
-	'''Handles the creation of a new makersprojects relationship
+	'''Handles the client interaction with makersprojects relationship
 
 	Method arguments:
 		request -- The full HTTP request object

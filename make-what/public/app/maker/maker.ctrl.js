@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('make-what')
-	.controller('MakerCtrl', ['$scope','$http', '$location', 'apiUrl', 'RootFactory', 'UserFactory',
+	.controller('MakerCtrl', ['$scope','$http', '$location', '$route', 'apiUrl', 'RootFactory', 'UserFactory',
 
-		function($scope, $http, $location, apiUrl, RootFactory, UserFactory){
+		function($scope, $http, $location, $route, apiUrl, RootFactory, UserFactory){
 
 			$scope.projects = null;
 			$scope.root = null;
@@ -40,8 +40,10 @@ angular.module('make-what')
 
 							for (var i=0; i < $scope.projects[h].maker_project.length; i++) {
 
-									if ($scope.projects[h].maker_project[i].maker.username == $scope.currentUser.username) {
-										$scope.makerProjectMatches.push($scope.projects[h])
+								if ($scope.projects[h].maker_project[i].maker.username == $scope.currentUser.username) {
+									$scope.projects[h].maker_project_id = $scope.projects[h].maker_project[i].id
+									console.log("$scope.projects[h].maker_project[i].id", $scope.projects[h].maker_project[i].id);
+									$scope.makerProjectMatches.push($scope.projects[h])
 
 								}
 							}
@@ -49,7 +51,35 @@ angular.module('make-what')
 						console.log('makerProjectMatches', $scope.makerProjectMatches);
 					});
 
+			// Delete project from user's ToMake list
+			$scope.deleteToMake = (project) => {
+				$http.defaults.headers.common.Authorization = 'Basic ' + RootFactory.credentials();
 
+				// Find the project in makerProjectMatches array that matches the project being deleted,
+				// Remove it, so displayed ToMake list reflects the project's deletion from the makersProjects database
+				// for (var i = 0; i < $scope.makerProjectMatches.length; i++) {
+				// 	console.log("$scope.makerProjectMatches[i]", $scope.makerProjectMatches[i])
+				// 	// if ($scope.makerProjectMatches[i].maker_project.length !=0) {
+				// 		for (var j = 0; j < $scope.makerProjectMatches[i].maker_project.length; j++) {
+				// 			console.log("$scope.makerProjectMatches[i].maker_project[j]", $scope.makerProjectMatches[i].maker_project[j]);
+				// 			console.log("$scope.makerProjectMatches[i].maker_project[j].id", $scope.makerProjectMatches[i].maker_project[j].id);
+
+				// 			if ($scope.makerProjectMatches[i].maker_project[j].id = project.maker_project_id) {
+				// 				$scope.makerProjectMatches.splice($scope.makerProjectMatches[i])
+
+				// 			}
+				// 		}
+				// 	// }
+				// }
+
+				$http({
+					url: `${apiUrl}/makersprojects/${project.maker_project_id}/`,
+					method: "DELETE"
+
+				})
+				.success(res => $route.reload())
+				.error(() => window.alert('Something went wrong, try again.'));
+			}
 
 
 		}

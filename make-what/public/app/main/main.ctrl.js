@@ -58,7 +58,7 @@ angular.module('make-what')
 					selectSupplies: $scope.selected_supplies,
 					selectTypes: $scope.selected_types
 				})
-				console.log("supplies", $scope.selected_supplies)
+				// console.log("selectsupplies", $scope.selectSupplies)
 				console.log("types",$scope.selected_types)
 			}
 
@@ -66,6 +66,8 @@ angular.module('make-what')
 			$scope.saveToMake = (project, currentUser) => {
 				console.log("project", project );
 				console.log('currentUser', currentUser)
+
+				if (currentUser !== null) {
 				// Set the authorization headers on the request
 				// After equal sign below, this is the Base 64 string built in app.js
 				$http.defaults.headers.common.Authorization = 'Basic ' + RootFactory.credentials();
@@ -79,7 +81,12 @@ angular.module('make-what')
 					}
 				})
 				.success(res => $location.path('/maker'))
-				.error(() => window.alert('Please log in to save projects.'));
+				.error(() => window.alert('Looks like you should need to try again.'));
+				} else {
+					window.alert('Please log in to save projects.');
+					$location.path('/login');
+				}
+
 			}
 
 		}

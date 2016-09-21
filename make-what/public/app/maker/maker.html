@@ -8,7 +8,14 @@
 		<div class='wrapper' ng-show='show'>
 			<p class='showProj'>((project.description))</p>
 			<p class='showProj'><a href='((project.link))' target='blank'>Check out the tutorial!</a></p>
-			<!-- <p class='showProj'><a href='' ng-click='saveToMake()'>Add to my ToMake list</a></p> -->
-			<!-- Put a delete option here -->
+			<!-- delete option -->
+			<p class='showProj'><a href='' ng-click='deleteToMake(project)'>Delete from my ToMake list</a></p>
 		</div>
 	</div>
+
+		<!-- ng-show div shown if there are no project matches -->
+		<div class='wrapper' ng-show='!makerProjectMatches.length' >
+			<p>You haven't saved any projects. <a href='/'>Check some out here</a>, then save them.</p>
+
+		</div>
+</div>
