@@ -1,6 +1,34 @@
+html {
+	background-color: #e2ecff;
+}
+
+body {
+	background-color: #e2ecff;
+	/*padding-top: 80px;*/
+}
+
+container {
+	background-color: #e2ecff;
+}
+
 /* Nav Styling */
 .nav-pretty {
-	background-color: #2196f3;
+	background-color: #e2ecff;
+	height: 150px;
+	text-align: center;
+	border-color: #e2ecff;
+}
+
+.navHeading {
+	font-family: 'Work Sans', sans-serif;
+	font-size: 80px;
+	letter-spacing: 8px;
+	margin: auto 10px;
+}
+
+.navLinks {
+	margin: 10px 20px 30px;
+	font-size: 18px;
 }
 
 
@@ -8,37 +36,61 @@
 
 /* Move main (index) container div down to allow for sticky nav bar */
 .cont2 {
-	margin-top: 15%;
+	margin-top: 150px;
+	width: 100%;
 }
 
 .temp {
-	color: #ffc8c8;
+	color: #FFAB91;
 	margin-left: 1px;
-	font-size: 2em;
+	font-family: 'Work Sans', sans-serif;
+	font-size: 35px;
+	text-align: center;
 }
 
 
 /* All a, p, button tags */
-button {
+.btn {
 	background-color: #2196f3;
+	border-radius: 15px;
+	box-shadow:
+		2px 2px 2px #5199a0,
+		4px 3px 3px lightyellow;
+	height: 40px;
+	width: 80px;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	display: block;
+	margin: auto;
 }
 
-a, p, button, a:visited, a:focus, button:visited, button:focus{
-	color: #ffc8c8;
+a, p, .btn, a:visited, a:focus, button:visited, button:focus{
+	color: #ffab91;
+	/*font-size: 18px;*/
 	text-decoration: none;
 	/*font-size: .5em;*/
 }
 
-a:hover, button:hover {
-	color:#d1f780;
+a:hover, .btn:hover {
+	color:#edee8d;
 	text-decoration: none;
 }
 
+/*.instructs {
+	font-size: 18px;
+}*/
 
 /* Search Form Div and Projects Div */
 .main{
-	border: 3px solid #d1f780;
-	margin: 3px auto;
+	background-color: #f2f2f2;
+	border: 2px solid #edee8d;
+	border-radius: 15px;
+	box-shadow:
+		2px 2px 2px #5199a0,
+		4px 3px 3px lightyellow;
+	margin: 25px auto;
+	padding: 10px;
 }
 
 /* Main Search Div */
@@ -60,6 +112,7 @@ section {
 /* Ng-show-controlled divs */
 .wrapper {
 	margin-left: 3px auto;
+	/*width: 100%;*/
 }
 
 .inset {
@@ -81,6 +134,24 @@ section {
 	    display: inline-block;
 }
 
+li {
+	list-style: none;
+	color: #2196f3;
+	font-size: 15px;
+}
 
 
 
+/*background-color: rgba(215, 250, 225, 0.6);
+	border-radius: 10px;
+	-webkit-box-shadow:
+		2px 1px 3px lightyellow,
+		3px 1px 3px #FF8888;
+	        box-shadow:
+		2px 1px 3px lightyellow,
+		3px 1px 3px #FF8888;
+	display: block;
+	font-size: 25px;
+	margin: 25px auto 30px;
+	padding: .9em;
+*/
