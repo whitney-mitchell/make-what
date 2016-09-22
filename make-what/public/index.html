@@ -4,27 +4,31 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>MakeWhat?</title>
+	<link href="https://fonts.googleapis.com/css?family=Work+Sans:600" rel="stylesheet">
 	<link rel='stylesheet' href='/lib/bootstrap/dist/css/bootstrap.min.css'>
 	<link rel='stylesheet' href='/styles/style.css'>
+
 </head>
 <body>
-	<header id="header">
-		<nav class="navbar navbar-default navbar-fixed-top nav-pretty">
-			<!-- <div class='container'> -->
-			<h1 class='heading'><a href ='#/'>makewhat</a></h1>
-				<a href='#/register'>Register</a>
-				<a href='#/login'>Login</a>
-				<a href='#/maker'>ToMake</a>
-				<!-- <a href='#/add_new'>Add a Project</a> -->
-				<a href='#/'>New Search</a>
-		</nav>
-	</header>
-	<div class='container cont2'
-		<div ng-app='make-what'>
-			<div ng-view></div>
+	<div class='container'>
+
+			<nav class="navbar navbar-default navbar-fixed-top nav-pretty">
+				<h1 class='heading'><a href ='#/' class=' navHeading'>makeWhat?</a></h1>
+					<a href='#/register' class='navLinks'>Register</a>
+					<a href='#/login' class='navLinks'>Login</a>
+					<a href='#/maker' class='navLinks'>ToMake</a>
+					<!-- <a href='#/add_new' class='navLinks'>Add a Project</a> -->
+					<a href='#/' class='navLinks'>New Search</a>
+			</nav>
+
+		<div class='container cont2'>
+			<div ng-app='make-what'>
+				<div ng-view>
+
+				</div>
+			</div>
 		</div>
 	</div>
-
 
 
 

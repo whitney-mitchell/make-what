@@ -1,14 +1,13 @@
-<h1 class='temp'>main</h1>
-<h1 class='temp'>Hello ((currentUser.username))!</h1>
-
+<h1 class='temp' ng-hide='!currentUser'>Hello ((currentUser.username))</h1>
+<h2 class='temp'>What will you make today?</h2>
 	<!-- Search Form -->
 <form class='container main form-container'>
 	<div>
-		<p>Search projects here!</p>
+		<p class='instructs'>Type the names of some supplies you already have, or are curious about, and MakeWhat will return DIY project ideas! (Examples: scissors, fabric, arduino, etc . . .)</p>
+
 	</div>
 
 	<!-- Supplies search input -->
-	<p class='instructs'>Type the names of some supplies you already have, or are curious about, and MakeWhat will return DIY project ideas! (Examples: scissors, fabric, arduino, etc . . .)</p>
 	<p>Use commas to separate your search terms, even terms that shouldn't logically have commas. Ex: instead of "hot glue, wire," type "hot, glue, wire."</p>
 	<section>
 		<input type='text' class='form-control' placeholder='Type supply words.' ng-model='selected_supplies' ng-list ng-trim='false' autofocus>
@@ -28,7 +27,7 @@
 
 	<!-- Search Button -->
 	<section>
-		<button ng-click='search()' ng-enter='search()'>Search</button>
+		<button class='btn' ng-click='search()' ng-enter='search()'>Search</button>
 	</section>
 </form>
 

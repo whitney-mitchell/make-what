@@ -6,7 +6,6 @@ angular.module('make-what')
 
 		function($scope, $http, $location, $timeout, $routeParams, apiUrl, RootFactory, UserFactory){
 
-			$scope.heading = 'results!'
 			console.log("$routeParams.selectSupplies", $routeParams.selectSupplies);
 			$scope.selectedSupplies = [];
 			// Make user-typed supplies lowercase

@@ -1,17 +1,15 @@
-<h1>((heading))</h1>
+<h1 class='temp'>Recommended Projects:</h1>
 
 	<div class=wrapper>
-		<p>You selected:</p>
+		<p class='instructs'>You searched:</p>
 		<ul class='wrapper suppliesSearched' ng-repeat= 'supply in selectedSupplies'>
 			<li>((supply))</li>
 		</ul>
-
 	</div>
-
 
 <!-- <p> You selected ((selectedTypes))</p> -->
 
-	<!-- Results Projects Container -->
+	<!-- Search results Projects Container -->
 	<div class= 'container main project_container'>
 		<div class='row' ng-repeat="project in projectMatches | unique: 'name'">
 			<a href=''><p class='showText' ng-click='show = !show' ng-model='selectedProject'>((project.name | capitalize))</p></a>
