@@ -31,7 +31,6 @@ container {
 	font-size: 18px;
 }
 
-
 /***** MAIN PAGE STYLES *****/
 
 /* Move main (index) container div down to allow for sticky nav bar */
@@ -54,7 +53,7 @@ container {
 	background-color: #2196f3;
 	border-radius: 15px;
 	box-shadow:
-		2px 2px 2px #5199a0,
+		2px 2px 2px #737e46,
 		4px 3px 3px lightyellow;
 	height: 40px;
 	width: 80px;
@@ -77,9 +76,6 @@ a:hover, .btn:hover {
 	text-decoration: none;
 }
 
-/*.instructs {
-	font-size: 18px;
-}*/
 
 /* Search Form Div and Projects Div */
 .main{
@@ -98,10 +94,18 @@ section {
 	margin-top: 10px;
 }
 
+.instructs {
+	font-size: 18px;
+}
+
 /* Projects Div Text */
 .project_container p {
-	margin-left: 10px;
+	margin-left: 35px;
+}
 
+a .showText {
+	font-size: 18px;
+	margin-left: 25px;
 }
 
 .showText:hover {
@@ -137,7 +141,7 @@ section {
 li {
 	list-style: none;
 	color: #2196f3;
-	font-size: 15px;
+	font-size: 16px;
 }
 
 

@@ -1,24 +1,30 @@
-<h1 class='temp'>((regheading))</h1>
+<h1 class='temp'>Register as a Maker!</h1>
 
-<form class='form-container'>
-	<div><p>Register as a Maker:</p></div>
+<form class='form-container main'>
+	<div class=wrapper>
+		<p class='instructs'>Register as a Maker:</p>
+	</div>
 	<section>
-		<input type='text' placeholder='First Name' ng-model='user.first_name' autofocus>
+		<input type='text' class='form-control' placeholder='First Name' ng-model='user.first_name' autofocus>
 	</section>
 	<section>
-		<input type='text' placeholder='Last Name' ng-model='user.last_name'>
+		<input type='text' class='form-control' placeholder='Last Name' ng-model='user.last_name'>
 	</section>
 	<section>
-		<input type='text' placeholder='Email' ng-model='user.email'>
+		<input type='text' class='form-control' placeholder='Email' ng-model='user.email'>
 	</section>
 	<section>
-		<input type='text' placeholder='MakerName' ng-model='user.username'>
+		<input type='text' class='form-control' placeholder='MakerName' ng-model='user.username'>
 	</section>
 	<section>
-		<input type='password' placeholder='Password' ng-model='user.password'>
+		<input type='password' class='form-control' placeholder='Password' ng-model='user.password'>
 	</section>
 
-	<button ng-click='register()' ng-enter='register()'>Register</button>
-	<button><a href='/'>Cancel</a></button>
+	<section>
+		<button class='btn' ng-click='register()' ng-enter='register()'>Register</button>
+	</section>
+	<section>
+		<button class='btn'><a href='/'>Cancel</a></button>
+	</section>
 </form>
 

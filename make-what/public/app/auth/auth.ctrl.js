@@ -4,8 +4,6 @@ angular.module('make-what')
 	.controller('AuthCtrl', ['$scope','$http', '$location', 'apiUrl', 'RootFactory', 'UserFactory',
 
 		function($scope, $http, $location, apiUrl, RootFactory, UserFactory){
-			$scope.logheading = "I'm login!";
-			$scope.regheading = "I'm the registration station!";
 
 			$scope.user = {
 				username: '',

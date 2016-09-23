@@ -1,14 +1,20 @@
-<h1 class='temp'>((logheading))</h1>
+<h1 class='temp'>Log in Here!</h1>
 
-<form class=form-container>
-	<div><p>Login to MakeWhat:</p></div>
+<form class='form-container main'>
+	<div class=wrapper>
+		<p class='instructs'>Log in to MakeWhat:</p>
+	</div>
 	<section>
-		<input type='text' placeholder='MakerName' ng-model='user.username' autofocus>
+		<input type='text' class='form-control' placeholder='MakerName' ng-model='user.username' autofocus>
 	</section>
 	<section>
-		<input type='password' placeholder='Password' ng-model='user.password'>
+		<input type='password' class='form-control' placeholder='Password' ng-model='user.password'>
 	</section>
-	<button ng-click='login()' ng-enter='login()'><a>Login</a></button>
-	<button><a href='/'>Cancel</a></button>
+	<section>
+		<button class='btn'ng-click='login()' ng-enter='login()'><a>Login</a></button>
+	</section>
+	<section>
+		<button class='btn'><a href='/'>Cancel</a></button>
+	</section>
 </form>
 
