@@ -1,4 +1,4 @@
-<h1 class='temp' ng-hide='!currentUser'>Hello ((currentUser.username))</h1>
+<h1 class='temp' ng-hide='!currentUser'>Hello ((currentUser.username))!</h1>
 <h2 class='temp'>What will you make today?</h2>
 	<!-- Search Form -->
 <form class='container main form-container'>
@@ -32,6 +32,7 @@
 </form>
 
 	<!-- Main Projects Container -->
+<h2 class='temp'>Featured Projects:</h2>
 <div class= 'container main project_container'>
 	<div class='row' ng-repeat='project in projects | limitTo: 10'>
 		<a href=''><p class='showText' ng-click='show = !show' ng-model='selectedProject'>((project.name | capitalize))</p></a>

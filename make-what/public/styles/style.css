@@ -76,9 +76,8 @@ a:hover, .btn:hover {
 	text-decoration: none;
 }
 
-
 /* Search Form Div and Projects Div */
-.main{
+.main {
 	background-color: #f2f2f2;
 	border: 2px solid #edee8d;
 	border-radius: 15px;
@@ -95,7 +94,12 @@ section {
 }
 
 .instructs {
-	font-size: 18px;
+	font-size: 20px;
+}
+
+.instructs2 {
+	font-size: 30px;
+	font-family: 'Work Sans', sans-serif;
 }
 
 /* Projects Div Text */
@@ -142,20 +146,7 @@ li {
 	list-style: none;
 	color: #2196f3;
 	font-size: 16px;
+	margin-bottom: 20px;
 }
 
 
-
-/*background-color: rgba(215, 250, 225, 0.6);
-	border-radius: 10px;
-	-webkit-box-shadow:
-		2px 1px 3px lightyellow,
-		3px 1px 3px #FF8888;
-	        box-shadow:
-		2px 1px 3px lightyellow,
-		3px 1px 3px #FF8888;
-	display: block;
-	font-size: 25px;
-	margin: 25px auto 30px;
-	padding: .9em;
-*/
