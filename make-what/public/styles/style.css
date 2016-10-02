@@ -127,6 +127,10 @@ a .showText {
 	margin-left: 10px;
 }
 
+.showProj2 {
+	color: #ffab91;
+}
+
 .showProj, .showProj a {
 	color: #2196f3;
 }
